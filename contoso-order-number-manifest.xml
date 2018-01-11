@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp
+          xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+          xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+          xsi:type="MailApp">
+
+  <!-- Begin Basic Settings: Add-in metadata, used for all versions of Office unless override provided. -->
+
+  <!-- IMPORTANT! Id must be unique for your add-in, if you reuse this manifest ensure that you change this id to a new GUID. -->
+  <Id>351bf5d8-c3e5-4c35-8f0b-3da9a28f22f2</Id>
+
+  <!-- Version. Updates from the store only get triggered if there is a version change. -->
+  <Version>1.0.0.0</Version>
+  <ProviderName>Outlook Dev Center</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
+  <DisplayName DefaultValue="Contoso Order Number Add-in" />
+  <Description DefaultValue="A sample add-in that demonstrates contextual activation on a Regex match."/>
+
+  <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
+  <IconUrl DefaultValue="https://localhost:8080/assets/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://localhost:8080/assets/hi-res-icon.png"/>
+  <!-- End Basic Settings. -->
+
+  <!-- Legacy settings -->
+  <!-- These values will be used for legacy clients that do not understand the -->
+  <!-- VersionOverrides schema. These values will be ignored by clients that do -->
+  <!-- understand VersionOverrides, with the exception of Permissions -->
+  <Hosts>
+    <Host Name="Mailbox" />
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.1" />
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://localhost:8080/index.html"/>
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+
+  <Permissions>ReadWriteItem</Permissions>
+  <!-- Note that this Rule element matches the Rule element inside the -->
+  <!-- DetectedEntity element below. This is so that older clients will be able -->
+  <!-- to activate the add-in on the same context. -->
+  <Rule xsi:type="RuleCollection" Mode="And">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
+    <Rule xsi:type="ItemHasRegularExpressionMatch" RegExName="9Digits" RegExValue="\d{9}" PropertyName="BodyAsPlaintext"/>
+  </Rule>
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <!-- VersionOverrides for the v1.1 schema -->
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.5">
+          <bt:Set Name="Mailbox" />
+        </bt:Sets>
+      </Requirements>
+      <Hosts>
+        <Host xsi:type="MailHost">
+
+          <DesktopFormFactor>
+            <!-- DetectedEntity -->
+            <ExtensionPoint xsi:type="DetectedEntity">
+              <Label resid="contextLabel" />
+              <SourceLocation resid="detectedEntityURL" />
+              <Rule xsi:type="RuleCollection" Mode="And">
+                <Rule xsi:type="ItemIs" ItemType="Message" />
+                <Rule xsi:type="ItemHasRegularExpressionMatch" RegExName="OrderNumber" RegExValue="CO-\d{9}" PropertyName="BodyAsPlaintext"/>
+              </Rule>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+
+      <Resources>
+        <bt:Images>
+          <bt:Image id="icon16" DefaultValue="https://localhost:8080/assets/icon-16.png"/>
+          <bt:Image id="icon32" DefaultValue="https://localhost:8080/assets/icon-32.png"/>
+          <bt:Image id="icon80" DefaultValue="https://localhost:8080/assets/icon-80.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="detectedEntityURL" DefaultValue="https://localhost:8080/index.html"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="contextLabel" DefaultValue="Order Number Detected"/>
+        </bt:ShortStrings>
+      </Resources>
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>

@@ -1,0 +1,16 @@
+#content-main {
+  padding: 5px;
+}
+
+#error {
+  display: none;
+  padding: 10px;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
