@@ -1,3 +1,16 @@
+---
+topic: sample
+products:
+- Office 365
+- Outlook
+languages:
+- JavaScript
+extensions:
+  contentType: samples
+  technologies:
+  - Add-ins
+  createdDate: 1/11/2018 1:18:43 PM
+---
 # Outlook Add-in: Contoso Order Number
 
 This sample add-in demonstrates how to create a [contextual add-in](https://docs.microsoft.com/en-us/outlook/add-ins/contextual-outlook-add-ins) that activates when a regular expression match is detected in the body of a message.
