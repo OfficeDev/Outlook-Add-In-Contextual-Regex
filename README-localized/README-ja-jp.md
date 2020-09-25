@@ -13,7 +13,7 @@ extensions:
 ---
 # Outlook アドイン:Contoso の注文番号
 
-このサンプル アドインは、メッセージ本文において正規表現の一致が検出されるとアクティブ化する[コンテキスト アドイン](https://docs.microsoft.com/en-us/outlook/add-ins/contextual-outlook-add-ins)を作成する方法を示します。
+このサンプル アドインは、メッセージ本文において正規表現の一致が検出されるとアクティブ化する[コンテキスト アドイン](https://docs.microsoft.com/office/dev/add-ins/outlook/contextual-outlook-add-ins)を作成する方法を示します。
 
 このアドインは、特定の形式を持った架空の Contoso の注文番号を検出します。使用される形式は、`CO-` とそれに続く 9 桁の数字です。有効にすると、アドインは選択された注文番号、およびメッセージ内で検出されたすべての注文番号の一覧の両方をシンプルに表示します。
 
@@ -23,7 +23,7 @@ extensions:
 
 このアドインを試すには、以下のものが必要になります。
 
-- Office 365:まだ Office 365 を所持していない場合は、[1 か月間無料試用版の登録](http://office.microsoft.com/en-us/try/?WT%2Eintid1=ODC%5FENUS%5FFX101785584%5FXT104056786)が可能です。
+- Office 365:まだ Office 365 を所持していない場合は、[1 か月間無料試用版の登録](http://office.microsoft.com/try/?WT%2Eintid1=ODC%5FENUS%5FFX101785584%5FXT104056786)が可能です。
 - SSL で保護された Web サーバー:これには、クライアントが信頼する SSL 証明書を持った任意の Web サーバーを指定することができます。Web サーバーにアクセスできない場合、Node.js および NPM を使用してコマンドラインから基本的な Web サーバーを実行する手順について、「[ローカルでアドインを実行する](running-locally.md)」を参照してください。
 
 ## アドインを構成する
@@ -36,16 +36,17 @@ extensions:
 
 ## アドインをサイドロードする
 
-「[テスト用に Outlook アドインをサイドロードする](https://docs.microsoft.com/en-us/outlook/add-ins/sideload-outlook-add-ins-for-testing)」の手順に従って `contoso-order-number-manifest.xml` ファイルをサイドロードします。
+「[テスト用に Outlook アドインをサイドロードする](https://docs.microsoft.com/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing)」の手順に従って `contoso-order-number-manifest.xml` ファイルをサイドロードします。
 
 ## 試してみる
 
 1. [Outlook on the web](https://outlook.office.com) を開きます。
 1. 本文に Contoso の注文番号を記載したメッセージを自分自身に送信します。次に例を示します。
 
-    ```
+    ```text
     Thanks for your order! Your order number is CO-123456789.
     ```
+
 1. メッセージが受信トレイに届いたら、それを開きます。注文番号が強調表示されているはずです。注文番号をクリックして、アドインを開きます。
 
     ![Outlook on the web でアクティブ化されたアドインのスクリーンショット。](readme-images/add-in-activated.PNG)

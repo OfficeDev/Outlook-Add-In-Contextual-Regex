@@ -13,7 +13,7 @@ extensions:
 ---
 # Complément Outlook : Numéro de commande Contoso
 
-Cet exemple de complément présente comment créer un [complément contextuel](https://docs.microsoft.com/en-us/outlook/add-ins/contextual-outlook-add-ins) qui s’active lorsqu’une correspondance d’expression régulière est détectée dans le corps d’un message.
+Cet exemple de complément présente comment créer un [complément contextuel](https://docs.microsoft.com/office/dev/add-ins/outlook/contextual-outlook-add-ins) qui s’active lorsqu’une correspondance d’expression régulière est détectée dans le corps d’un message.
 
 Le complément détecte les numéros de commande Contoso fictifs ayant un format spécifique. Le format utilisé est `CO-` suivi de 9 chiffres. Lorsqu’il est activé, le complément affiche simplement le numéro de commande sélectionné et une liste de tous les numéros de commande détectés dans le message.
 
@@ -23,7 +23,7 @@ Le complément détecte les numéros de commande Contoso fictifs ayant un format
 
 Pour exécuter ce complément, vous devez avoir :
 
-- Office 365 : Si vous n’avez pas encore Office 365, vous pouvez vous [inscrire pour obtenir une version d’évaluation gratuite d’un mois](http://office.microsoft.com/en-us/try/?WT%2Eintid1=ODC%5FENUS%5FFX101785584%5FXT104056786).
+- Office 365 : Si vous n’avez pas encore Office 365, vous pouvez vous [inscrire pour obtenir une version d’évaluation gratuite d’un mois](http://office.microsoft.com/try/?WT%2Eintid1=ODC%5FENUS%5FFX101785584%5FXT104056786).
 - Un serveur web protégé par SSL : Il peut s’agir de n'importe quel serveur web disposant d’un certificat SSL approuvé par votre client. Si vous n’avez pas accès à un serveur web, voir l'[Exécution du complément localement](running-locally.md) pour connaître la procédure d’exécution d’un serveur web de base à partir de la ligne de commande utilisatn Node.js et NPM.
 
 ## Configurer le complément
@@ -36,16 +36,17 @@ Pour exécuter ce complément, vous devez avoir :
 
 ## Charger une version test du complément
 
-Suivez les instructions indiquées dans l’article [Chargement de version test des compléments Outlook](https://docs.microsoft.com/en-us/outlook/add-ins/sideload-outlook-add-ins-for-testing) pour charger le fichier `contoso-order-number-manifest.xml`.
+Suivez les instructions indiquées dans l’article [Chargement de version test des compléments Outlook](https://docs.microsoft.com/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing) pour charger le fichier `contoso-order-number-manifest.xml`.
 
 ## Faites un essai
 
 1. Ouvrez [Outlook sur le web](https://outlook.office.com).
 1. Envoyez-vous un message avec un numéro de commande Contoso dans le corps du message. Par exemple :
 
-    ```
+    ```text
     Thanks for your order! Your order number is CO-123456789.
     ```
+
 1. Ouvrez le message lorsqu'il arrive dans votre boîte aux lettres. Le numéro de commande doit être mis en surbrillance. Cliquez sur le numéro de commande pour ouvrir le complément.
 
     ![Capture d'écran d'un complément validé dans Outlook sur le web](readme-images/add-in-activated.PNG)

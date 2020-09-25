@@ -13,7 +13,7 @@ extensions:
 ---
 # Complemento de Outlook: Número de pedido de Contoso
 
-Este complemento de ejemplo muestra cómo crear un [complemento contextual](https://docs.microsoft.com/en-us/outlook/add-ins/contextual-outlook-add-ins) que se activa cuando se detecta una coincidencia de expresión regular en el cuerpo de un mensaje.
+Este complemento de ejemplo muestra cómo crear un [complemento contextual](https://docs.microsoft.com/office/dev/add-ins/outlook/contextual-outlook-add-ins) que se activa cuando se detecta una coincidencia de expresión regular en el cuerpo de un mensaje.
 
 El complemento detecta números de pedido ficticios de Contoso con un formato específico. El formato utilizado es `CO-` seguido de 9 dígitos. Cuando se activa, el complemento muestra el número de pedido seleccionado y una lista de todos los números de pedido detectados en el mensaje.
 
@@ -23,7 +23,7 @@ El complemento detecta números de pedido ficticios de Contoso con un formato es
 
 Para probar este complemento, necesitará:
 
-- Office 365: Si todavía no tiene Office 365, puede [registrarse para obtener una prueba gratuita de 1 mes](http://office.microsoft.com/en-us/try/?WT%2Eintid1=ODC%5FENUS%5FFX101785584%5FXT104056786).
+- Office 365: Si todavía no tiene Office 365, puede [registrarse para obtener una prueba gratuita de 1 mes](http://office.microsoft.com/try/?WT%2Eintid1=ODC%5FENUS%5FFX101785584%5FXT104056786).
 - Un servidor web protegido por SSL: Puede ser cualquier servidor web con un certificado SSL de confianza para el cliente. Si no tiene acceso a un servidor web, consulte [Ejecutar el complemento de forma local](running-locally.md) para ver los pasos para ejecutar un servidor web básico desde la línea de comandos con Node.js y NPM.
 
 ## Configurar el complemento
@@ -36,16 +36,17 @@ Para probar este complemento, necesitará:
 
 ## Transferir el complemento localmente
 
-Siga las instrucciones que encontrará en [Transferir localmente complementos de Outlook para pruebas](https://docs.microsoft.com/en-us/outlook/add-ins/sideload-outlook-add-ins-for-testing) para transferir el archivo `contoso-order-number-manifest.xml`.
+Siga las instrucciones que encontrará en [Transferir localmente complementos de Outlook para pruebas](https://docs.microsoft.com/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing) para transferir el archivo `contoso-order-number-manifest.xml`.
 
 ## Pruébelo
 
 1. Abra [Outlook en la Web](https://outlook.office.com).
 1. Envíese un mensaje con un número de pedido de Contoso en el cuerpo. Por ejemplo:
 
-    ```
+    ```text
     Thanks for your order! Your order number is CO-123456789.
     ```
+
 1. Cuando llegue el mensaje a su bandeja de entrada, ábralo. El número de pedido debería aparecer resaltado. Haga clic en el número de pedido para abrir el complemento.
 
     ![Una captura de pantalla del complemento activado en Outlook en la Web](readme-images/add-in-activated.PNG)

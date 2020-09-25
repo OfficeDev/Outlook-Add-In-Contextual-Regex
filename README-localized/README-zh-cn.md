@@ -13,7 +13,7 @@ extensions:
 ---
 # Outlook 加载项：Contoso 订单编号
 
-此示例加载项演示如何创建在邮件正文中检测到正则表达式匹配时激活的[上下文加载项](https://docs.microsoft.com/en-us/outlook/add-ins/contextual-outlook-add-ins)。
+此示例加载项演示如何创建在邮件正文中检测到正则表达式匹配时激活的[上下文加载项](https://docs.microsoft.com/office/dev/add-ins/outlook/contextual-outlook-add-ins)。
 
 该加载项会检测具有特定格式的虚构 Contoso 订单编号。使用的格式是 `CO-` 后跟 9 位数字。该加载项激活后直接显示所选订单编号和邮件中检测到的所有订单编号的列表。
 
@@ -23,7 +23,7 @@ extensions:
 
 为了尝试此加载项，需要：
 
-- Office 365：如果尚未安装 Office 365，可以[注册 1 个月免费试用版](http://office.microsoft.com/en-us/try/?WT%2Eintid1=ODC%5FENUS%5FFX101785584%5FXT104056786)。
+- Office 365：如果尚未安装 Office 365，可以[注册 1 个月免费试用版](http://office.microsoft.com/try/?WT%2Eintid1=ODC%5FENUS%5FFX101785584%5FXT104056786)。
 - 受 SSL 保护的 Web 服务器：这可以是任何 Web 服务器，只要你的客户端信任其 SSL 证书即可。如果你没有 Web 服务器的访问权限，请参阅[在本地运行加载项](running-locally.md)，了解使用 Node.js 和 NPM 从命令行运行基本 Web 服务器的步骤。
 
 ## 配置加载项
@@ -36,16 +36,17 @@ extensions:
 
 ## 旁加载加载项
 
-按照[旁加载 Outlook 加载项进行测试](https://docs.microsoft.com/en-us/outlook/add-ins/sideload-outlook-add-ins-for-testing)中的说明，旁加载 `contoso-order-number-manifest.xml` 文件。
+按照[旁加载 Outlook 加载项进行测试](https://docs.microsoft.com/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing)中的说明，旁加载 `contoso-order-number-manifest.xml` 文件。
 
 ## 尝试一下
 
 1. 打开 [Outlook 网页版](https://outlook.office.com)。
 1. 向你自己发送一封在正文中包含 Contoso 订单编号的邮件。例如：
 
-    ```
+    ```text
     Thanks for your order! Your order number is CO-123456789.
     ```
+
 1. 当邮件到达你的收件箱时，将其打开。订单编号应该会突出显示。单击订单编号即可打开加载项。
 
     ![在 Outlook 网页版中激活的加载项的屏幕截图](readme-images/add-in-activated.PNG)

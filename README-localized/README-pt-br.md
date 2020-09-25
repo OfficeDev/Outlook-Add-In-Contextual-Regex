@@ -13,7 +13,7 @@ extensions:
 ---
 # Suplemento do Outlook: Número do pedido da Contoso
 
-Este exemplo de suplemento demonstra como criar um [suplemento contextual](https://docs.microsoft.com/en-us/outlook/add-ins/contextual-outlook-add-ins) que é ativado quando uma correspondência de expressão regular é detectada no corpo de uma mensagem.
+Este exemplo de suplemento demonstra como criar um [suplemento contextual](https://docs.microsoft.com/office/dev/add-ins/outlook/contextual-outlook-add-ins) que é ativado quando uma correspondência de expressão regular é detectada no corpo de uma mensagem.
 
 O suplemento detecta números de pedido da Contoso fictícios com um formato específico. O formato usado é `CO-` seguido de 9 dígitos. Quando ativado, o suplemento simplesmente exibe o número do pedido selecionado e uma lista de todos os números de pedido detectados na mensagem.
 
@@ -23,7 +23,7 @@ O suplemento detecta números de pedido da Contoso fictícios com um formato esp
 
 Para experimentar esse suplemento, você precisará do seguinte:
 
-- Office 365: Se você ainda não tem o Office 365, [registre-se para fazer uma avaliação gratuita de um mês](http://office.microsoft.com/en-us/try/?WT%2Eintid1=ODC%5FENUS%5FFX101785584%5FXT104056786).
+- Office 365: Se você ainda não tem o Office 365, [registre-se para fazer uma avaliação gratuita de um mês](http://office.microsoft.com/try/?WT%2Eintid1=ODC%5FENUS%5FFX101785584%5FXT104056786).
 - Um servidor Web protegido por SSL: Pode ser qualquer servidor Web com um certificado SSL confiável para seu cliente. Se você não tiver acesso a um servidor Web, consulte [executar o suplemento localmente](running-locally.md) para ver as etapas para executar um servidor Web básico a partir da linha de comando usando o Node.js e o NPM.
 
 ## Configurar o suplemento
@@ -36,16 +36,17 @@ Para experimentar esse suplemento, você precisará do seguinte:
 
 ## Realizar o sideload do suplemento
 
-Siga as instruções em [Sideload de suplementos do Outlook para testar](https://docs.microsoft.com/en-us/outlook/add-ins/sideload-outlook-add-ins-for-testing) para fazer o sideload do arquivo `contoso-Order-Number-manifest.xml`.
+Siga as instruções em [Sideload de suplementos do Outlook para testar](https://docs.microsoft.com/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing) para fazer o sideload do arquivo `contoso-Order-Number-manifest.xml`.
 
 ## Experimente
 
 1. Abra o [Outlook na Web](https://outlook.office.com).
 1. Envie uma mensagem com um número de pedido da Contoso no corpo. Por exemplo:
 
-    ```
+    ```text
     Thanks for your order! Your order number is CO-123456789.
     ```
+
 1. Quando a mensagem chegar na caixa de entrada, abra-a. O número do pedido deve ser realçado. Clique no número do pedido para abrir o suplemento.
 
     ![Uma captura de tela do suplemento ativado no Outlook na Web](readme-images/add-in-activated.PNG)
