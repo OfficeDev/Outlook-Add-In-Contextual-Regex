@@ -4,8 +4,8 @@ As an alternative to using a web server to test this add-in, you can follow thes
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/en/) with the NPM package manager
-- PEM-encoded public and private keys suitable for protecting websites. The certifiate MUST have a subject of `localhost`. This repository includes both a public and private key you can use for testing (located in the **certs** directory), but feel free to generate your own.
+- [Node.js](https://nodejs.org/) with the NPM package manager
+- PEM-encoded public and private keys suitable for protecting websites. The certificate MUST have a subject of `localhost`. This repository includes both a public and private key you can use for testing (located in the **certs** directory), but feel free to generate your own.
 
 ## Trust the certificates
 
