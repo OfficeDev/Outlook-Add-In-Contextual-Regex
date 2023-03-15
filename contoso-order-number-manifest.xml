@@ -51,7 +51,7 @@
   <!-- to activate the add-in on the same context. -->
   <Rule xsi:type="RuleCollection" Mode="And">
     <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
-    <Rule xsi:type="ItemHasRegularExpressionMatch" RegExName="9Digits" RegExValue="\d{9}" PropertyName="BodyAsPlaintext"/>
+    <Rule xsi:type="ItemHasRegularExpressionMatch" RegExName="9Digits" RegExValue="CO-\d{9}" PropertyName="BodyAsPlaintext"/>
   </Rule>
   <DisableEntityHighlighting>false</DisableEntityHighlighting>
 
